@@ -1,0 +1,4 @@
+$kind: http-request
+url: http://localhost:8080/api/feed/personalized
+method: GET
+order: 4502941723104421

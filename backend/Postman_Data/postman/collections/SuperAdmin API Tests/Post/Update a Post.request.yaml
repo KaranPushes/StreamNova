@@ -1,0 +1,10 @@
+$kind: http-request
+url: http://localhost:8080/api/posts/update/1
+method: PUT
+headers:
+  Content-Type: application/json
+body:
+  type: text
+  content: '{"content": "Updated post content", "comments": "Updated comments", "likes": 10}'
+settings: {}
+order: 2000

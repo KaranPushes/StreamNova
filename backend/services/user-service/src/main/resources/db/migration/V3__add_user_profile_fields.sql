@@ -1,0 +1,6 @@
+ALTER TABLE users
+    ADD COLUMN bio VARCHAR(300),
+    ADD COLUMN avatar_url VARCHAR(500),
+    ADD COLUMN banner_url VARCHAR(500),
+    ADD COLUMN website_url VARCHAR(500),
+    ADD COLUMN location VARCHAR(100);

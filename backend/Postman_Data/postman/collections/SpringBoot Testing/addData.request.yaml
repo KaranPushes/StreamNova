@@ -1,0 +1,14 @@
+$kind: http-request
+url: http://localhost:8080/addData
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \    \"username\": \"Karan\",\r
+
+    \    \"password\": \"Karan123\"\r
+
+    }"
+settings: {}
+order: 3000

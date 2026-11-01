@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: transcoder-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: transcoder-service
+  template:
+    metadata:
+      labels:
+        app: transcoder-service
+    spec:
+      containers:
+      - name: transcoder-service
+        image: streamnova/transcoder-service
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8087
+        envFrom:
+        - configMapRef:
+            name: streamnova-config
+        volumeMounts:
+        - name: hls-storage
+          mountPath: /var/www/hls
+      volumes:
+      - name: hls-storage
+        persistentVolumeClaim:
+          claimName: hls-data-pvc
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: transcoder-service
+spec:
+  selector:
+    app: transcoder-service
+  ports:
+  - port: 8087
+    targetPort: 8087

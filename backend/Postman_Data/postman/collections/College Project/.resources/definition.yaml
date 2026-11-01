@@ -1,0 +1,5 @@
+$kind: collection
+auth:
+  - id: a911bbcd-34c8-4b28-8a1f-42e3477e7b2d
+    type: bearer
+    name: bearer auth

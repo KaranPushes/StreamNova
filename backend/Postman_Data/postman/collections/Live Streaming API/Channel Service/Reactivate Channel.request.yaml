@@ -1,0 +1,4 @@
+$kind: http-request
+url: http://localhost:8083/channels/me/reactivate
+method: POST
+order: 7000

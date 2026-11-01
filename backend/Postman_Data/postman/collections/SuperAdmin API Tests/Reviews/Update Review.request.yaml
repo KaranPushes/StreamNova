@@ -1,0 +1,14 @@
+$kind: http-request
+url: http://localhost:8080/api/reviews/update
+method: PUT
+body:
+  type: text
+  content: |-
+    {
+        "dbName": "healthcare_db",
+        "id": 1,
+        "rating": 4,
+        "reviewText": "Good service, but can improve communication."
+    }
+settings: {}
+order: 6000

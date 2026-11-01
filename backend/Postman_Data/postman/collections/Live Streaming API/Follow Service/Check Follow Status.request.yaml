@@ -1,0 +1,4 @@
+$kind: http-request
+url: http://localhost:8080/follows/channels/64c238e1-1d33-43bd-a234-d9dc292d70aa/status
+method: GET
+order: 2000

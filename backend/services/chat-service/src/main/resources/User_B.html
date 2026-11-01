@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Chat WebSocket Test</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@stomp/stompjs@7/bundles/stomp.umd.min.js"></script>
+</head>
+
+<body>
+
+<h2>Chat Test</h2>
+
+<button onclick="connect()">Connect</button>
+<button onclick="sendMessage()">Send Message</button>
+
+<pre id="messages"></pre>
+
+<script>
+
+    const streamId = "b761c62b-3e4b-47b7-bdf6-6689b7f70b6c";
+
+    // Put a valid JWT from Auth Service here
+    const accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI3ZTYzNzRmYy02N2E5LTRhMjYtYWJiOS0zNDU3ZGMwOWQ2MmEiLCJzaWQiOiI5NjYyMDYxMS05NTk3LTQxYmUtYmFmMi0yY2UyYWU5MzFjYTkiLCJlbWFpbCI6ImthcmFudGVzdEBnbWFpbC5jb20iLCJ1c2VybmFtZSI6ImthcmFuZm91bmQiLCJyb2xlcyI6WyJVU0VSIl0sImlhdCI6MTc4OTkwOTU0NywiZXhwIjoxNzg5OTEwNDQ3fQ.4EK4U0ymiraLhSNRXRJwzXnrLc-L5grx9AisSc9ghhA";
+
+    let client;
+
+    function log(message) {
+        document.getElementById("messages").textContent +=
+            message + "\n";
+    }
+
+    function connect() {
+
+        client = new StompJs.Client({
+            brokerURL: "ws://localhost:8088/ws/chat",
+
+            // JWT is sent in the STOMP CONNECT frame
+            connectHeaders: {
+                Authorization: `Bearer ${accessToken}`
+            },
+
+            reconnectDelay: 5000,
+
+            onConnect: () => {
+
+                log("Connected");
+
+                client.subscribe(
+                    `/topic/streams/${streamId}/chat`,
+                    message => {
+
+                        log(
+                            "RECEIVED: " +
+                            message.body
+                        );
+                    }
+                );
+
+                log("Subscribed to stream chat");
+
+                client.subscribe(
+                    `/topic/streams/${streamId}/chat.deleted`,
+                    message => {
+
+                        log(
+                            "DELETED: " +
+                            message.body
+                        );
+                    }
+                );
+
+                client.subscribe(
+                    "/user/queue/chat.errors",
+                    message => {
+                        const error = JSON.parse(message.body);
+
+                        log(
+                            `ERROR: ${error.code} - ${error.message}`
+                        );
+                    }
+                );
+            },
+
+
+            onStompError: frame => {
+                log(
+                    "STOMP ERROR: " +
+                    frame.headers["message"]
+                );
+            },
+
+            onWebSocketError: error => {
+                log("WebSocket error");
+                console.error(error);
+            }
+        });
+
+        client.activate();
+    }
+
+    function sendMessage() {
+
+        if (!client || !client.connected) {
+            log("Not connected");
+            return;
+        }
+
+        client.publish({
+            destination: "/app/chat.send",
+
+            body: JSON.stringify({
+                streamId: streamId,
+                message: "Hello from authenticated browser!"
+            })
+        });
+
+        log("Message sent");
+    }
+
+</script>
+
+</body>
+</html>

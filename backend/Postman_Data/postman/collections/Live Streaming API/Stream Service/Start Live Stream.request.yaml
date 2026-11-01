@@ -1,0 +1,5 @@
+$kind: http-request
+url: http://localhost:8080/streams/b2ae6663-105a-402b-902e-52621af8846f/start
+method: POST
+settings: {}
+order: 8000

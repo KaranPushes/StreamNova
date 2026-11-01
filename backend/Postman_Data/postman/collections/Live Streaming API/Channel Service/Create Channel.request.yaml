@@ -1,0 +1,11 @@
+$kind: http-request
+url: http://localhost:8083/channels
+method: POST
+body:
+  type: json
+  content: |-
+    {
+        "slug": "karanislive",
+        "displayName": "Karan is Live"
+    }
+order: 1000

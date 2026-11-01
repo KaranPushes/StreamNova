@@ -1,0 +1,8 @@
+$kind: http-request
+url: http://localhost:8080/api/contracts
+method: POST
+body:
+  type: json
+  content: ""
+settings: {}
+order: 3000

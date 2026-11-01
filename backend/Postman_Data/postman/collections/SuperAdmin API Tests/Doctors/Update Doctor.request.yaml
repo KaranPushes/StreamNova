@@ -1,0 +1,18 @@
+$kind: http-request
+url: http://localhost:8080/api/doctors/update
+method: PUT
+headers:
+  Content-Type: application/json
+body:
+  type: text
+  content: |-
+    {
+      "dbName": "database_name",
+      "doctorId": 123,
+      "specialty": "Neurology",
+      "licenseNumber": "XYZ789",
+      "yearsOfExperience": 15,
+      "availabilitySchedule": "Mon-Thu: 10am-4pm"
+    }
+settings: {}
+order: 7000

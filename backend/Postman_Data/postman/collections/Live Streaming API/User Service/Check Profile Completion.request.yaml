@@ -1,0 +1,9 @@
+$kind: http-request
+url: http://localhost:8081/users/me/profile-completion
+method: GET
+auth:
+  type: bearer
+  credentials:
+    token: ""
+settings: {}
+order: 11000

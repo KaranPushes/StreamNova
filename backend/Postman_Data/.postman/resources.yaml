@@ -1,0 +1,22 @@
+workspace:
+  id: 126f9a4f-3cb4-4932-861b-ddac7cd905f2
+cloudResources:
+  collections:
+    ../postman/collections/Streaming Platform - v0.10.0 Stream Service: 36830354-a0d637af-a245-42eb-8a60-70c5d00443fb
+    ../postman/collections/Live Streaming API: 36830354-f1c762f4-1355-4da8-ac0b-b63fd3acdedc
+    ../postman/collections/Contract Bite APIs: 36830354-3b6a98d9-eaf1-4f9b-be5f-3eed68070d0f
+    ../postman/collections/Login Signup Test: 36830354-378d1e75-48d1-42cb-9034-dd68f21aaaa3
+    ../postman/collections/OLLAMA: 36830354-952d11c2-a6cb-447f-8a39-d31243508f16
+    ../postman/collections/XML BOT API: 36830354-5a6b9165-ca99-42d5-ba14-1c60e6784295
+    ../postman/collections/SuperAdmin API Tests: 36830354-3a410e59-84f3-410d-bccf-f0be16ea01eb
+    ../postman/collections/College Project: 36830354-5142faa1-7878-4d60-8e96-bcd811526304
+    ../postman/collections/Notes App: 36830354-b6e178e0-cd3d-4ff5-b21c-5337f21000c6
+    ../postman/collections/Other API Testing: 36830354-caa63ac1-b6a8-4811-9ea9-befb3807188b
+    ../postman/collections/SpringBoot Testing: 36830354-763a5b1f-b937-4e50-a0ea-4587dc17e633
+    ../postman/collections/REST API basics- CRUD, test & variable: 36830354-c2071c82-a154-4d9c-9e18-6f4e0a04edf5
+localResources:
+  specs:
+    - ../postman/specs/Live Streaming Platform APIs/Live Streaming Platform APIs.yaml
+resourceNameMappings:
+  specs:
+    - ../postman/specs/Live Streaming Platform APIs/Live Streaming Platform APIs.yaml: Live Streaming Platform APIs

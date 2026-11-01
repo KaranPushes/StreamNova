@@ -1,0 +1,5 @@
+$kind: http-request
+name: Follows /me
+url: http://localhost:8080/follows/me
+method: GET
+order: 5000

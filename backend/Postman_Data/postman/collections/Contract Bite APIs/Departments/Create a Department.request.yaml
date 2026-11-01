@@ -1,0 +1,13 @@
+$kind: http-request
+url: http://localhost:8080/api/department
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: text
+  content: |-
+    {
+        "name": "Finance"
+    }
+settings: {}
+order: 3000

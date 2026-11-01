@@ -1,0 +1,16 @@
+$kind: http-request
+url: "{{baseUrl}}/streams"
+method: POST
+headers:
+  Authorization: Bearer {{userJwt}}
+  Content-Type: application/json
+body:
+  type: text
+  content: |-
+    {
+      "title": "Test Stream",
+      "description": "Test description",
+      "category": "Gaming"
+    }
+settings: {}
+order: 2000

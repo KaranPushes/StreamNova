@@ -1,0 +1,5 @@
+$kind: http-request
+url: "{{baseUrl}}/streams/live"
+method: GET
+settings: {}
+order: 9000

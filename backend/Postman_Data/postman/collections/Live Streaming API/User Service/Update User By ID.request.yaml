@@ -1,0 +1,14 @@
+$kind: http-request
+url: http://localhost:8081/users/me/profile
+method: PATCH
+body:
+  type: json
+  content: |-
+    {
+        "username": "karanfound3",
+        "displayName": "Karan Found 3",
+        "bio": "Backend Engineer",
+        "location": "Jodhpur"
+    }
+settings: {}
+order: 3000

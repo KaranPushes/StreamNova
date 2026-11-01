@@ -1,0 +1,20 @@
+$kind: http-request
+url: http://localhost:8080/api/auth/register
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \  \"username\": \"Karan\",\r
+
+    \  \"password\": \"password@123\",\r
+
+    \  \"email\": \"macret16@gmail.com\",\r
+
+    \  \"role\": \"USER\"\r
+
+    }"
+auth:
+  type: noauth
+settings: {}
+order: 1000

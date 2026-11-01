@@ -1,0 +1,17 @@
+$kind: http-request
+url: http://localhost:8081/users/me/avatar
+method: PATCH
+body:
+  type: json
+  content: |-
+    {
+        "mediaId": "fbe8a443-1dbe-4ac7-9754-23b68e5d671b"
+    }
+
+
+    // Banner id 
+    // {
+    //     "mediaId": "31c7ef4c-2ddf-4d8e-b692-dafb738bbaf7"
+    // }
+settings: {}
+order: 4000

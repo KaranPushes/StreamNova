@@ -1,0 +1,14 @@
+$kind: http-request
+url: http://localhost:8080/media/stream-thumbnail
+method: POST
+queryParams:
+  - key: ""
+    value: ""
+    disabled: true
+body:
+  type: formdata
+  content:
+    - type: file
+      key: file
+      src: /Users/karan/Downloads/test.webp
+order: 3000

@@ -1,0 +1,15 @@
+$kind: http-request
+url: "{{base_url}}/api/patients/update"
+method: PUT
+headers:
+  Content-Type: application/json
+body:
+  type: text
+  content: |-
+    {
+      "dbName": "exampleDb",
+      "userId": 12345,
+      "registrationDate": "2025-01-21"
+    }
+settings: {}
+order: 5000

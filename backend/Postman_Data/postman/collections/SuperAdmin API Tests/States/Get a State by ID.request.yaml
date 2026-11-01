@@ -1,0 +1,5 @@
+$kind: http-request
+url: http://localhost:8080/api/states/1
+method: GET
+settings: {}
+order: 5000

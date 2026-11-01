@@ -1,0 +1,38 @@
+$kind: http-request
+url: http://localhost:8080/api/users
+method: PUT
+body:
+  type: text
+  content: |-
+    {
+        "id": 1,
+        "fullName": "John Doe",
+        "dateOfBirth": "1985-10-15",
+        "gender": "Male",
+        "email": "john.doe@newdomain.com",
+        "phoneNumber": "+1234567890",
+        "password": "newpassword123",
+        "profilePhotoUrl": "http://example.com/newphoto.jpg",
+        "bloodGroup": "O+",
+        "allergies": "Peanuts",
+        "chronicConditions": "Hypertension",
+        "medicalHistory": "No major surgeries.",
+        "emergencyContactName": "Jane Doe",
+        "emergencyContactPhone": "+1234567891",
+        "emergencyContactRelation": "Wife",
+        "residentialAddress": "123 Main Street, City, Country",
+        "cityId": 1,
+        "stateId": 1,
+        "insuranceCompanyName": "HealthInsure",
+        "policyNumber": "HIC12345678",
+        "preferredLanguage": "English",
+        "consentForDataUsage": true,
+        "phoneVerified": true,
+        "emailVerified": true,
+        "aadharCardVerified": true,
+        "pushNotificationsEnabled": true,
+        "aadharCard": "1234 5678 9876 5432",
+        "roleId": 2
+    }
+settings: {}
+order: 4000

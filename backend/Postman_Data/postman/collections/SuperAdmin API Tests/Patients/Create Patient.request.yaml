@@ -1,0 +1,14 @@
+$kind: http-request
+url: http://localhost:8080/api/patients/create
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: text
+  content: |-
+    {
+      "dbName": "apo_hos",
+      "userId": 2
+    }
+settings: {}
+order: 1000

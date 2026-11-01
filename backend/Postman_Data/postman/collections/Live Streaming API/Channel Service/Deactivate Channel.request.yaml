@@ -1,0 +1,4 @@
+$kind: http-request
+url: http://localhost:8083/channels/me
+method: DELETE
+order: 4000

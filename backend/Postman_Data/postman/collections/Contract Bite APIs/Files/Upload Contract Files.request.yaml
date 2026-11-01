@@ -1,0 +1,22 @@
+$kind: http-request
+url: http://localhost:8080/api/files/upload
+method: POST
+headers:
+  Content-Type: multipart/form-data
+body:
+  type: formdata
+  content:
+    - type: file
+      key: files
+      src: postman-cloud:///1effce4a-c2a9-46b0-a499-7989873740ff
+    - type: text
+      key: contractId
+      value: "4"
+    - type: text
+      key: departmentName
+      value: IT
+    - type: text
+      key: userId
+      value: "2"
+settings: {}
+order: 1000

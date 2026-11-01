@@ -1,0 +1,11 @@
+$kind: http-request
+url: http://localhost:8081/users/me/banner
+method: DELETE
+body:
+  type: json
+  content: |-
+    {
+        "avatarUrl":"www.google.com"
+    }
+settings: {}
+order: 6000

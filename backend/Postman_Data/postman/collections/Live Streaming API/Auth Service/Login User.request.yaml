@@ -1,0 +1,28 @@
+$kind: http-request
+url: http://localhost:8080/auth/login
+method: POST
+headers:
+  User-Agent: PostmanRuntime /Mac OS X
+body:
+  type: json
+  content: |-
+    {
+        "email": "karanop167@gmail.com",
+        "password": "karan167"
+    }
+
+    // {
+    //     "email": "karantest@gmail.com",
+    //     "password": "karanfound"
+    // }
+auth:
+  type: noauth
+scripts:
+  - type: afterResponse
+    code: |
+      const responseData = pm.response.json();
+      // Adjust 'token' to match the exact key name in your JSON response body
+      pm.collectionVariables.set("jwt_token", responseData.accessToken);
+    language: text/javascript
+settings: {}
+order: 2000

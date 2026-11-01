@@ -1,0 +1,7 @@
+$kind: http-request
+url: http://localhost:8081/users/internal?email=karan@test.com
+method: GET
+queryParams:
+  email: karan@test.com
+settings: {}
+order: 14000

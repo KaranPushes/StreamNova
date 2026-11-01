@@ -1,0 +1,5 @@
+$kind: http-request
+url: "{{base_url}}/api/patients/{{dbName}}/{{id}}"
+method: DELETE
+settings: {}
+order: 2000

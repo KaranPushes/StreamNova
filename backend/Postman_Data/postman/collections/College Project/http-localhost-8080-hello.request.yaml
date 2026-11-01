@@ -1,0 +1,8 @@
+$kind: http-request
+name: http://localhost:8080/hello
+url: http://localhost:8080/hello
+method: GET
+headers:
+  Authorization: "Bearer "
+settings: {}
+order: 4000

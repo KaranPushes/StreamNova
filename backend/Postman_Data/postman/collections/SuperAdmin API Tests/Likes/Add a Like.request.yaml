@@ -1,0 +1,8 @@
+$kind: http-request
+url: http://localhost:8080/api/likes/add?userId=1&postId=101
+method: POST
+queryParams:
+  userId: "1"
+  postId: "101"
+settings: {}
+order: 1000

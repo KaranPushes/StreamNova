@@ -1,0 +1,7 @@
+$kind: http-request
+url: http://localhost:8080/api/doctors/all?dbName=database_name
+method: GET
+queryParams:
+  dbName: database_name
+settings: {}
+order: 3000

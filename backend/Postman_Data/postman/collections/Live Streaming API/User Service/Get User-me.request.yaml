@@ -1,0 +1,6 @@
+$kind: http-request
+name: Get User/me
+url: http://localhost:8080/users/me
+method: GET
+settings: {}
+order: 9000

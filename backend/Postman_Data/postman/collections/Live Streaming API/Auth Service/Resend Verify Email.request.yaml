@@ -1,0 +1,13 @@
+$kind: http-request
+url: http://localhost:8082/auth/resend-verification
+method: POST
+body:
+  type: json
+  content: |-
+    {
+      "email": "karantest3@gmail.com"
+    }
+auth:
+  type: noauth
+settings: {}
+order: 10000

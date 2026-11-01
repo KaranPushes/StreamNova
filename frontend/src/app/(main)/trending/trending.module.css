@@ -1,0 +1,58 @@
+.pageContainer {
+  padding: 32px 48px;
+  max-width: 1600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.emptyState {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border-bottom: 1px solid var(--border-medium);
+  padding-bottom: 24px;
+}
+
+.headerIcon {
+  color: #fb923c; /* Orange for trending */
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 32px;
+}
+
+.trendingWrapper {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.rank {
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--text-muted);
+  min-width: 50px;
+  text-align: right;
+  padding-top: 12px;
+}

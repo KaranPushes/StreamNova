@@ -1,0 +1,18 @@
+resources:
+  - configmap.yaml
+  - infra/storage
+  - infra/postgres
+  - infra/streaming
+  - apps/discovery-server
+  - apps/config-server
+  - apps/api-gateway
+  - apps/auth-service
+  - apps/user-service
+  - apps/channel-service
+  - apps/follow-service
+  - apps/media-service
+  - apps/stream-service
+  - apps/transcoder-service
+  - apps/chat-service
+  - apps/feed-service
+  - apps/notification-service

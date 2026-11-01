@@ -1,0 +1,4 @@
+$kind: http-request
+url: http://localhost:8080/api/feed/categories/Gaming
+method: GET
+order: 4499267601340673

@@ -1,0 +1,5 @@
+$kind: http-request
+url: http://localhost:8080/streams/channel/64c238e1-1d33-43bd-a234-d9dc292d70aa
+method: GET
+settings: {}
+order: 4000

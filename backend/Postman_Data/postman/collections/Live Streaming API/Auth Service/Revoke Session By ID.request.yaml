@@ -1,0 +1,8 @@
+$kind: http-request
+url: http://localhost:8082/auth/sessions/9178ad41-52f3-41c6-b135-b06775d9d1db
+method: DELETE
+body:
+  type: json
+  content: ""
+settings: {}
+order: 6000

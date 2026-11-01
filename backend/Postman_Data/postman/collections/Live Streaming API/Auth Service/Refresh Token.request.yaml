@@ -1,0 +1,13 @@
+$kind: http-request
+url: http://localhost:8082/auth/refresh
+method: POST
+body:
+  type: json
+  content: |-
+    {
+      "refreshToken": "9RzMeCYlCM6wR1lvwNiKyG5z8TEIOTilwii2CMSHHMIrMsEHYsXl_no0I8oEj85b4VEPzZD_zR71xGLaznPFUA"
+    }
+auth:
+  type: noauth
+settings: {}
+order: 8000

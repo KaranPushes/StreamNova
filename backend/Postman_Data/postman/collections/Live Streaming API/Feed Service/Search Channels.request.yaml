@@ -1,0 +1,8 @@
+$kind: http-request
+url: http://localhost:8080/api/feed/channels?q=karan&page=0&size=20
+method: GET
+queryParams:
+  q: karan
+  page: "0"
+  size: "20"
+order: 2332340172225153

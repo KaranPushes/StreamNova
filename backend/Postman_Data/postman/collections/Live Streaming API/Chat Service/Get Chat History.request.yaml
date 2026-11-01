@@ -1,0 +1,8 @@
+$kind: http-request
+url: http://localhost:8080/api/chat/streams/b761c62b-3e4b-47b7-bdf6-6689b7f70b6c/messages
+method: GET
+auth:
+  type: inherit
+  credentials:
+    id: collection-Dc2Cf76EE1aefEeeAb8BF01D-bearer
+order: 1789897712792

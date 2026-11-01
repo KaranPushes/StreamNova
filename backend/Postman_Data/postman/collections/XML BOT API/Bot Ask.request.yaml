@@ -1,0 +1,8 @@
+$kind: http-request
+url: http://localhost:8080/bot/ask
+method: POST
+body:
+  type: json
+  content: "{\r\n  \"input\": \"ismail\"\r\n}"
+settings: {}
+order: 2000

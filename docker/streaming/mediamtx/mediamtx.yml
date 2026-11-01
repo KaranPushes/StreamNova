@@ -1,0 +1,21 @@
+logLevel: debug
+
+authMethod: http
+
+authHTTPAddress: http://host.docker.internal:8086/internal/streams/authenticate
+
+authHTTPExclude:
+  - action: read
+  - action: playback
+
+paths:
+  "~^live/(.+)$":
+    source: publisher
+
+    runOnOnline: >
+      curl -X POST
+      http://host.docker.internal:8086/internal/streams/$G1/publish
+
+    runOnOffline: >
+      curl -X POST
+      http://host.docker.internal:8086/internal/streams/$G1/unpublish

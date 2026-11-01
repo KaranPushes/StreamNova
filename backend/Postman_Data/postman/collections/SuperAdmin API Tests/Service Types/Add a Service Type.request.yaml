@@ -1,0 +1,10 @@
+$kind: http-request
+url: http://localhost:8080/api/service-types/add
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: text
+  content: '{"name": "Plumbing", "description": "Plumbing services for home and commercial use."}'
+settings: {}
+order: 1000

@@ -1,0 +1,5 @@
+$kind: http-request
+url: http://localhost:8080/deleteData/5
+method: DELETE
+settings: {}
+order: 6000

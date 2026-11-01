@@ -1,0 +1,42 @@
+.playerContainer {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background-color: #000;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+  border: 1px solid var(--border-medium);
+}
+
+.video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.offlineState {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(18,18,18,0.9), rgba(5,5,5,0.95));
+  backdrop-filter: blur(10px);
+  color: var(--text-primary);
+  text-align: center;
+  gap: 16px;
+}
+
+.offlineIcon {
+  color: var(--text-muted);
+  opacity: 0.5;
+}
+
+.offlineText {
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}

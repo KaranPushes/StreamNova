@@ -1,0 +1,10 @@
+$kind: http-request
+url: http://localhost:8080/api/posts/add
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: text
+  content: '{"userId": 1, "content": "This is a new post", "comments": "No comments yet"}'
+settings: {}
+order: 1000

@@ -1,0 +1,14 @@
+$kind: http-request
+url: http://localhost:8080/streams
+method: POST
+body:
+  type: json
+  content: |-
+    {
+      "title": "Testing Scheduled Notification",
+      "description": "Testing the Stream Service",
+      "category": "Notification Testing",
+      "scheduledAt": "2026-10-03T18:30:00Z"
+    }
+settings: {}
+order: 2000

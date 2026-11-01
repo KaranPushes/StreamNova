@@ -1,0 +1,10 @@
+$kind: http-request
+url: http://localhost:8083/channels/me/banner
+method: DELETE
+body:
+  type: json
+  content: |-
+    {
+        "bannerUrl": "www.google.com"
+    }
+order: 11000

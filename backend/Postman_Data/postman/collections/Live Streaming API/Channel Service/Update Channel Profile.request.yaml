@@ -1,0 +1,15 @@
+$kind: http-request
+url: http://localhost:8080/channels/me
+method: PATCH
+body:
+  type: json
+  content: |-
+    {
+        "displayName": "Karan Gaming",
+        "description": "Gaming, programming and live streams."
+    }
+
+    // {
+    //     "slug": "karanstreams"
+    // }
+order: 3000

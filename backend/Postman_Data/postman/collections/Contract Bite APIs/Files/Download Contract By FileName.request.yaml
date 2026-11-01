@@ -1,0 +1,9 @@
+$kind: http-request
+url: localhost:8080/api/files/download/Contract_ConceptServe_IT_a4978c7e.docx
+method: GET
+headers:
+  - key: ""
+    value: "1"
+    disabled: true
+settings: {}
+order: 3000

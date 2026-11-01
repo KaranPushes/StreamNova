@@ -1,0 +1,29 @@
+$kind: http-request
+name: http://localhost:8087/api/auth/register
+url: http://localhost:8087/api/auth/register
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \    \"email\": \"macret16@gmail.com\",\r
+
+    \    \"username\": \"Karan\",\r
+
+    \    \"password\": \"karan\",\r
+
+    \    \"role\": \"USER\"\r
+
+    }"
+auth:
+  type: jwt
+  credentials:
+    algorithm: HS256
+    isSecretBase64Encoded: false
+    addTokenTo: header
+    payload: "{}"
+    queryParamKey: token
+    header: "{}"
+    headerPrefix: Bearer
+settings: {}
+order: 2000

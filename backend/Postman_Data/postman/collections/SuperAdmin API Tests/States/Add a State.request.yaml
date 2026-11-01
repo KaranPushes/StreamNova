@@ -1,0 +1,10 @@
+$kind: http-request
+url: http://localhost:8080/api/states/add
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: text
+  content: '{"name": "California", "country_id": 1}'
+settings: {}
+order: 1000

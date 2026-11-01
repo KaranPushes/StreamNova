@@ -1,0 +1,9 @@
+$kind: http-request
+url: http://localhost:8080/channels/profile/karanstreams
+method: GET
+body:
+  type: json
+  content: ""
+auth:
+  type: noauth
+order: 5000

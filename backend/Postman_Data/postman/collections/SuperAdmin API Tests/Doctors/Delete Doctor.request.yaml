@@ -1,0 +1,14 @@
+$kind: http-request
+url: http://localhost:8080/api/doctors/delete
+method: DELETE
+headers:
+  Content-Type: application/json
+body:
+  type: text
+  content: |-
+    {
+      "dbName": "apo_hos",
+      "doctorId": 5
+    }
+settings: {}
+order: 2000

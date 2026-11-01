@@ -1,0 +1,8 @@
+$kind: http-request
+url: localhost:8080/api/hospitals/{{hospitalId}}
+method: PUT
+body:
+  type: text
+  content: '{"name":"Updated City Hospital","state":"Maharashtra","city":"Mumbai","addressLine1":"456 Street","addressLine2":"Apt 10","phoneNumber":"9876543211","email":"updated@cityhospital.com","adminName":"Updated Admin","ownerName":"Updated Owner","governmentOrPrivate":"Government","operatingStatus":"Closed"}'
+settings: {}
+order: 4000

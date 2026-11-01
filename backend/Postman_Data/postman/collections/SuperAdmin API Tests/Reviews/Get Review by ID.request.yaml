@@ -1,0 +1,9 @@
+$kind: http-request
+url: http://localhost:8080/api/reviews/:id?dbName=healthcare_db
+method: GET
+queryParams:
+  dbName: healthcare_db
+pathVariables:
+  id: ""
+settings: {}
+order: 5000

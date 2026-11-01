@@ -1,0 +1,9 @@
+$kind: http-request
+name: Auth / me
+url: http://localhost:8080/auth/me
+method: GET
+body:
+  type: json
+  content: ""
+settings: {}
+order: 3000

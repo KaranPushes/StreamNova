@@ -1,0 +1,17 @@
+$kind: http-request
+url: http://localhost:8081/internal/users
+method: POST
+body:
+  type: json
+  content: |-
+    {
+        "username": "rahul",
+        "displayName": "Rahul",
+        "email": "rahul@test.com"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: ""
+settings: {}
+order: 2000

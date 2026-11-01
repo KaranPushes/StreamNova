@@ -1,0 +1,5 @@
+$kind: http-request
+url: "{{baseUrl}}/streams/{{streamId}}"
+method: GET
+settings: {}
+order: 7000

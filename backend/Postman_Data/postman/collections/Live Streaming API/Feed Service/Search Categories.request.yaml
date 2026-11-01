@@ -1,0 +1,4 @@
+$kind: http-request
+url: http://localhost:8080/api/feed/categories
+method: GET
+order: 4346021015186476

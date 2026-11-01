@@ -1,0 +1,13 @@
+$kind: http-request
+url: http://localhost:8080/streams
+method: POST
+body:
+  type: json
+  content: |-
+    {
+      "title": "My First Stream",
+      "description": "Testing the Stream Service",
+      "category": "Gambling"
+    }
+settings: {}
+order: 3000

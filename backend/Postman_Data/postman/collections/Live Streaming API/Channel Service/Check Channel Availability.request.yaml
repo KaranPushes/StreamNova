@@ -1,0 +1,9 @@
+$kind: http-request
+url: http://localhost:8083/channels/availability?slug=KARANSTREAMS
+method: GET
+queryParams:
+  slug: KARANSTREAMS
+body:
+  type: json
+  content: ""
+order: 6000

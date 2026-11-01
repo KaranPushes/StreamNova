@@ -1,0 +1,6 @@
+$kind: http-request
+name: Delete By User/me
+url: http://localhost:8081/users/me
+method: DELETE
+settings: {}
+order: 13000

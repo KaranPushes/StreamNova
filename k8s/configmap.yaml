@@ -1,0 +1,28 @@
+# ==============================================================================
+# StreamNova Local Development Configuration
+# NOTE: These values are pre-configured for local development in Colima/Minikube.
+# For production environments, sensitive parameters (passwords, JWT secret keys)
+# should be managed via Kubernetes Secrets or external secret providers (Vault).
+# ==============================================================================
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: streamnova-config
+data:
+  SPRING_CLOUD_CONFIG_URI: "http://config-server:8888"
+  CONFIG_SERVER_URL: "http://config-server:8888"
+  SPRING_CONFIG_IMPORT: "optional:configserver:http://config-server:8888"
+  EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: "http://discovery-server:8761/eureka"
+  EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE: "http://discovery-server:8761/eureka"
+  eureka.client.serviceUrl.defaultZone: "http://discovery-server:8761/eureka"
+  EUREKA_INSTANCE_PREFER_IP_ADDRESS: "true"
+  eureka.instance.prefer-ip-address: "true"
+  SPRING_CLOUD_CONFIG_FAIL_FAST: "false"
+  SPRING_DATASOURCE_USERNAME: "streaming"
+  SPRING_DATASOURCE_PASSWORD: "streaming123"
+  SPRING_KAFKA_BOOTSTRAP_SERVERS: "kafka:9092"
+  SPRING_DATA_REDIS_HOST: "redis"
+  SPRING_DATA_REDIS_PORT: "6379"
+  APPLICATION_SECURITY_JWT_SECRET_KEY: "KoNBlgUHCn24kEKj0ubb/GQebGqQjqOPDhTr/hICxbQ="
+  JAVA_TOOL_OPTIONS: "-Xms128m -Xmx256m -XX:MaxMetaspaceSize=128m -XX:+UseG1GC"
+

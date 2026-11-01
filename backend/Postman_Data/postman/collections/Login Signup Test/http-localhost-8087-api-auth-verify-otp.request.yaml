@@ -1,0 +1,17 @@
+$kind: http-request
+name: http://localhost:8087/api/auth/verify-otp
+url: http://localhost:8087/api/auth/verify-otp
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \    \"email\":\"macret16@gmail.com\",\r
+
+    \    \"otp\":628397\r
+
+    }"
+auth:
+  type: noauth
+settings: {}
+order: 1000

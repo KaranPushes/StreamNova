@@ -1,0 +1,8 @@
+$kind: http-request
+url: http://localhost:8080/api/user/2/roles
+method: POST
+body:
+  type: json
+  content: ISMAIL
+settings: {}
+order: 9000

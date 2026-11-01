@@ -1,0 +1,8 @@
+$kind: http-request
+url: http://localhost:8080/api/doctors/by-license?dbName=database_name&licenseNumber=ABC123
+method: GET
+queryParams:
+  dbName: database_name
+  licenseNumber: ABC123
+settings: {}
+order: 5000

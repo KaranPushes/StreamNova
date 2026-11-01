@@ -1,0 +1,7 @@
+$kind: collection
+variables:
+  jwt_token: ""
+auth:
+  type: bearer
+  credentials:
+    token: "{{jwt_token}}"

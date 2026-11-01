@@ -1,0 +1,32 @@
+$kind: http-request
+url: http://localhost:8080/bot/feed
+method: POST
+headers:
+  "": ""
+body:
+  type: json
+  content: "{\r
+
+    \  \"patterns\": [\r
+
+    \    {\r
+
+    \      \"inputs\": [\"hello\", \"hi\", \"hey\"],\r
+
+    \      \"responses\": [\"Hello there!\", \"Hi! How can I assist you?\"]\r
+
+    \    },\r
+
+    \    {\r
+
+    \      \"inputs\": [\"bye\", \"goodbye\"],\r
+
+    \      \"responses\": [\"Goodbye! Have a nice day!\", \"See you later!\"]\r
+
+    \    }\r
+
+    \  ]\r
+
+    }\r\n"
+settings: {}
+order: 1000

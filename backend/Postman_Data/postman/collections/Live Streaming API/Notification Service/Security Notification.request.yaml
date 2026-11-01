@@ -1,0 +1,12 @@
+$kind: http-request
+url: http://localhost:8089/internal/notifications/events/security
+method: POST
+body:
+  type: json
+  content: |-
+    {
+      "userId": "a8d14008-8088-4043-b591-b4356dcc9b81",
+      "title": "Security alert",
+      "message": "Your account security settings were changed."
+    }
+order: 4476498268380555

@@ -1,0 +1,893 @@
+openapi: 3.0.0
+info:
+  title: Live Streaming Platform APIs
+  version: 1.0.0
+  description: ''
+servers:
+  - url: 'http://localhost:8081'
+  - url: 'http://localhost:8080'
+  - url: 'http://localhost:8082'
+  - url: 'http://localhost:8083'
+  - url: 'http://localhost:8086'
+  - url: ''
+  - url: 'http://localhost:8089'
+paths:
+  /users/4ec6a2d2-36d2-4a8e-adac-4eb41890fe0c:
+    get:
+      summary: Get User By ID
+      responses: {}
+      tags:
+        - User Service
+  /internal/users:
+    post:
+      summary: Create User
+      responses: {}
+      tags:
+        - User Service
+      security:
+        - BearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                displayName:
+                  type: string
+                email:
+                  type: string
+                  format: email
+            example:
+              username: rahul
+              displayName: Rahul
+              email: rahul@test.com
+  /users/me/profile:
+    patch:
+      summary: Update User By ID
+      responses: {}
+      tags:
+        - User Service
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                displayName:
+                  type: string
+                bio:
+                  type: string
+                location:
+                  type: string
+            example:
+              username: karanfound3
+              displayName: Karan Found 3
+              bio: Backend Engineer
+              location: Jodhpur
+  /users/me/avatar:
+    patch:
+      summary: Update Avatar
+      responses: {}
+      tags:
+        - User Service
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+            example: |-
+              {
+                  "mediaId": "fbe8a443-1dbe-4ac7-9754-23b68e5d671b"
+              }
+
+
+              // Banner id 
+              // {
+              //     "mediaId": "31c7ef4c-2ddf-4d8e-b692-dafb738bbaf7"
+              // }
+    delete:
+      summary: Delete Avatar
+      responses: {}
+      tags:
+        - User Service
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+  /users/me/banner:
+    delete:
+      summary: Delete Banner
+      responses: {}
+      tags:
+        - User Service
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                avatarUrl:
+                  type: string
+            example:
+              avatarUrl: www.google.com
+    patch:
+      summary: Update Banner
+      responses: {}
+      tags:
+        - User Service
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+            example: |-
+              {
+                  "mediaId": "31c7ef4c-2ddf-4d8e-b692-dafb738bbaf7"
+              }
+
+              // Avatar id 
+
+              // {
+              //     "mediaId": "fbe8a443-1dbe-4ac7-9754-23b68e5d671b"
+              // }
+  /users/profile/karanfound:
+    get:
+      summary: Get User By Username
+      responses: {}
+      tags:
+        - User Service
+  /users/me:
+    get:
+      summary: Get User/me
+      responses: {}
+      tags:
+        - User Service
+    delete:
+      summary: Delete By User/me
+      responses: {}
+      tags:
+        - User Service
+  /users/availability:
+    get:
+      summary: Check Username Availability
+      parameters:
+        - name: username
+          in: query
+          schema:
+            type: string
+          example: karanop
+      responses: {}
+      tags:
+        - User Service
+  /users/me/profile-completion:
+    get:
+      summary: Check Profile Completion
+      responses: {}
+      tags:
+        - User Service
+      security:
+        - BearerAuth: []
+  /users/search:
+    get:
+      summary: Search Users
+      parameters:
+        - name: q
+          in: query
+          schema:
+            type: string
+          example: karan
+      responses: {}
+      tags:
+        - User Service
+  /users/internal:
+    get:
+      summary: Get user by internal email
+      parameters:
+        - name: email
+          in: query
+          schema:
+            type: string
+          example: karan@test.com
+      responses: {}
+      tags:
+        - User Service
+  /users/internal/6674943f-fd65-4ceb-9b21-03effe5331f7:
+    get:
+      summary: Get user by internal ID
+      responses: {}
+      tags:
+        - User Service
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+  /auth/register:
+    post:
+      summary: Register User
+      responses: {}
+      tags:
+        - Auth Service
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  format: email
+                password:
+                  type: string
+                username:
+                  type: string
+                displayName:
+                  type: string
+            example:
+              email: karanop167@gmail.com
+              password: karan167
+              username: karan167
+              displayName: KaranOp167
+  /auth/login:
+    post:
+      summary: Login User
+      parameters:
+        - name: User-Agent
+          in: header
+          schema:
+            type: string
+          example: PostmanRuntime /Mac OS X
+      responses: {}
+      tags:
+        - Auth Service
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+            example: |-
+              {
+                  "email": "karanop167@gmail.com",
+                  "password": "karan167"
+              }
+
+              // {
+              //     "email": "karantest@gmail.com",
+              //     "password": "karanfound"
+              // }
+  /auth/me:
+    get:
+      summary: Auth / me
+      responses: {}
+      tags:
+        - Auth Service
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+  /auth/sessions:
+    get:
+      summary: Get Sessions
+      responses: {}
+      tags:
+        - Auth Service
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+    delete:
+      summary: Revoke All Sessions
+      responses: {}
+      tags:
+        - Auth Service
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+  /auth/sessions/9178ad41-52f3-41c6-b135-b06775d9d1db:
+    delete:
+      summary: Revoke Session By ID
+      responses: {}
+      tags:
+        - Auth Service
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+  /auth/sessions/others:
+    delete:
+      summary: Revoke Other Sessions
+      responses: {}
+      tags:
+        - Auth Service
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+  /auth/refresh:
+    post:
+      summary: Refresh Token
+      responses: {}
+      tags:
+        - Auth Service
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                refreshToken:
+                  type: string
+            example:
+              refreshToken: 9RzMeCYlCM6wR1lvwNiKyG5z8TEIOTilwii2CMSHHMIrMsEHYsXl_no0I8oEj85b4VEPzZD_zR71xGLaznPFUA
+  /auth/verify-email:
+    post:
+      summary: Verify Email
+      responses: {}
+      tags:
+        - Auth Service
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                token:
+                  type: string
+            example:
+              token: Zk2P4bTdfVL2R5frgLNDC_sJWzLAXhpdex7fdqhoFJkxVhamw_MZ-Otx2NVSELBUiGFd9R429cXfkTejXD5wHg
+  /auth/resend-verification:
+    post:
+      summary: Resend Verify Email
+      responses: {}
+      tags:
+        - Auth Service
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  format: email
+            example:
+              email: karantest3@gmail.com
+  /auth/change-password:
+    post:
+      summary: Change Password
+      responses: {}
+      tags:
+        - Auth Service
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                currentPassword:
+                  type: string
+                newPassword:
+                  type: string
+            example:
+              currentPassword: karanfound2
+              newPassword: karanfound2changed
+  /auth/reset-password:
+    post:
+      summary: Reset Password
+      responses: {}
+      tags:
+        - Auth Service
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                token:
+                  type: string
+                newPassword:
+                  type: string
+            example:
+              token: QZj3EqxguTOUfxpjeAfDK8kGh0Iq-juVaoUJ_SQ9qSJ79qmBnJghjC-vQMxc2JApQFcMzs7cOghkkpe5iLmt_w
+              newPassword: karan@167
+  /auth/forgot-password:
+    post:
+      summary: Forgot Password
+      responses: {}
+      tags:
+        - Auth Service
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  format: email
+            example:
+              email: karanthehero167@gmail.com
+  /auth/logout:
+    post:
+      summary: Logout
+      responses: {}
+      tags:
+        - Auth Service
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                refreshToken:
+                  type: string
+            example:
+              refreshToken: jH4zdei-8o5r0-rFv0qtTTR9Bt7R4J8wU3LeFQQe7IBy5Ydvvj8Ik925E4At6ryYH_vziG4AIFDGjWdqOqHpFQ
+  /channels:
+    post:
+      summary: Create Channel
+      responses: {}
+      tags:
+        - Channel Service
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                slug:
+                  type: string
+                displayName:
+                  type: string
+            example:
+              slug: karanislive
+              displayName: Karan is Live
+  /channels/me:
+    get:
+      summary: Channels /me
+      responses: {}
+      tags:
+        - Channel Service
+    patch:
+      summary: Update Channel Profile
+      responses: {}
+      tags:
+        - Channel Service
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+            example: |-
+              {
+                  "displayName": "Karan Gaming",
+                  "description": "Gaming, programming and live streams."
+              }
+
+              // {
+              //     "slug": "karanstreams"
+              // }
+    delete:
+      summary: Deactivate Channel
+      responses: {}
+      tags:
+        - Channel Service
+  /channels/profile/karanstreams:
+    get:
+      summary: Get Channel By Name
+      responses: {}
+      tags:
+        - Channel Service
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+  /channels/availability:
+    get:
+      summary: Check Channel Availability
+      parameters:
+        - name: slug
+          in: query
+          schema:
+            type: string
+          example: KARANSTREAMS
+      responses: {}
+      tags:
+        - Channel Service
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+  /channels/me/reactivate:
+    post:
+      summary: Reactivate Channel
+      responses: {}
+      tags:
+        - Channel Service
+  /channels/me/avatar:
+    patch:
+      summary: Update Avatar Image
+      responses: {}
+      tags:
+        - Channel Service
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+            example: |-
+              {
+                "mediaId": "fbe8a443-1dbe-4ac7-9754-23b68e5d671b"
+              }
+
+              // Banner id
+
+              // {
+              //   "mediaId": "31c7ef4c-2ddf-4d8e-b692-dafb738bbaf7"
+              // }
+    delete:
+      summary: Delete Avatar Url
+      responses: {}
+      tags:
+        - Channel Service
+  /channels/me/banner:
+    patch:
+      summary: Update Banner Image
+      responses: {}
+      tags:
+        - Channel Service
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+            example: |-
+              {
+                "mediaId": "31c7ef4c-2ddf-4d8e-b692-dafb738bbaf7"
+              }
+
+              // avatar id
+
+              // {
+              //   "mediaId": "fbe8a443-1dbe-4ac7-9754-23b68e5d671b"
+              // }
+    delete:
+      summary: Delete Banner Url
+      responses: {}
+      tags:
+        - Channel Service
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                bannerUrl:
+                  type: string
+            example:
+              bannerUrl: www.google.com
+  /channels/search:
+    get:
+      summary: Search Channels
+      parameters:
+        - name: q
+          in: query
+          schema:
+            type: string
+          example: karan
+      responses: {}
+      tags:
+        - Channel Service
+  /follows/channels/64c238e1-1d33-43bd-a234-d9dc292d70aa:
+    post:
+      summary: Follow Channel
+      responses: {}
+      tags:
+        - Follow Service
+    delete:
+      summary: Unfollow Channel
+      responses: {}
+      tags:
+        - Follow Service
+  /follows/channels/64c238e1-1d33-43bd-a234-d9dc292d70aa/status:
+    get:
+      summary: Check Follow Status
+      responses: {}
+      tags:
+        - Follow Service
+  /follows/channels/64c238e1-1d33-43bd-a234-d9dc292d70aa/count:
+    get:
+      summary: Check Follower Count
+      responses: {}
+      tags:
+        - Follow Service
+  /follows/me:
+    get:
+      summary: Follows /me
+      responses: {}
+      tags:
+        - Follow Service
+  /media/avatar:
+    post:
+      summary: Upload Avatar Image
+      responses: {}
+      tags:
+        - Media Service
+  /media/banner:
+    post:
+      summary: Upload Banner Image
+      responses: {}
+      tags:
+        - Media Service
+  /media/stream-thumbnail:
+    post:
+      summary: Upload Stream Thumbnail
+      responses: {}
+      tags:
+        - Media Service
+  /media/files/f010699b-e5ce-41f8-b7b6-6e85e3443a93:
+    get:
+      summary: Get Avatar Image
+      responses: {}
+      tags:
+        - Media Service
+  /streams/live:
+    get:
+      summary: Get Live Streams
+      responses: {}
+      tags:
+        - Stream Service
+  /streams:
+    post:
+      summary: Create Live Stream
+      responses: {}
+      tags:
+        - Stream Service
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                description:
+                  type: string
+                category:
+                  type: string
+                scheduledAt:
+                  type: string
+                  format: date-time
+            example:
+              title: Testing Scheduled Notification
+              description: Testing the Stream Service
+              category: Notification Testing
+              scheduledAt: '2026-10-03T18:30:00Z'
+  /streams/channel/64c238e1-1d33-43bd-a234-d9dc292d70aa:
+    get:
+      summary: Get Live Streams For a Channel
+      responses: {}
+      tags:
+        - Stream Service
+  /streams/1482e743-b5ec-400e-95ce-c02e62d11092:
+    get:
+      summary: Get Live Stream by STREAM_UUID
+      responses: {}
+      tags:
+        - Stream Service
+  /:
+    get:
+      summary: Update Live Stream
+      responses: {}
+      tags:
+        - Stream Service
+  /streams/b2ae6663-105a-402b-902e-52621af8846f/start:
+    post:
+      summary: Start Live Stream
+      responses: {}
+      tags:
+        - Stream Service
+  /streams/b761c62b-3e4b-47b7-bdf6-6689b7f70b6c/end:
+    post:
+      summary: End Live Stream
+      responses: {}
+      tags:
+        - Stream Service
+  /api/feed/live:
+    get:
+      summary: Search Live Streams
+      parameters:
+        - name: category
+          in: query
+          schema:
+            type: string
+          example: Gaming
+        - name: q
+          in: query
+          schema:
+            type: string
+          example: karan
+        - name: page
+          in: query
+          schema:
+            type: integer
+          example: 0
+        - name: size
+          in: query
+          schema:
+            type: integer
+          example: 2
+        - name: sort
+          in: query
+          schema:
+            type: string
+          example: recent
+      responses: {}
+      tags:
+        - Feed Service
+  /api/feed/channels:
+    get:
+      summary: Search Channels
+      parameters:
+        - name: q
+          in: query
+          schema:
+            type: string
+          example: karan
+        - name: page
+          in: query
+          schema:
+            type: integer
+          example: 0
+        - name: size
+          in: query
+          schema:
+            type: integer
+          example: 20
+      responses: {}
+      tags:
+        - Feed Service
+  /api/feed/home:
+    get:
+      summary: Get Home Feed
+      responses: {}
+      tags:
+        - Feed Service
+  /api/feed/categories:
+    get:
+      summary: Search Categories
+      responses: {}
+      tags:
+        - Feed Service
+  /api/feed/categories/Gaming:
+    get:
+      summary: Get Streams By Category
+      responses: {}
+      tags:
+        - Feed Service
+  /api/feed/streams/b2ae6663-105a-402b-902e-52621af8846f:
+    get:
+      summary: Fetch Stream Data
+      responses: {}
+      tags:
+        - Feed Service
+  /api/notifications:
+    get:
+      summary: Get Notifications
+      responses: {}
+      tags:
+        - Notification Service
+  /api/notifications/unread-count:
+    get:
+      summary: Get Unread Notifications Count
+      responses: {}
+      tags:
+        - Notification Service
+  /internal/notifications/events/follower:
+    post:
+      summary: New Follower Notification
+      responses: {}
+      tags:
+        - Notification Service
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                followedUserId:
+                  type: string
+                followerUserId:
+                  type: string
+            example:
+              followedUserId: a8d14008-8088-4043-b591-b4356dcc9b81
+              followerUserId: 7e6374fc-67a9-4a26-abb9-3457dc09d62a
+  /internal/notifications/events/security:
+    post:
+      summary: Security Notification
+      responses: {}
+      tags:
+        - Notification Service
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                userId:
+                  type: string
+                title:
+                  type: string
+                message:
+                  type: string
+            example:
+              userId: a8d14008-8088-4043-b591-b4356dcc9b81
+              title: Security alert
+              message: Your account security settings were changed.
+  /api/chat/streams/b761c62b-3e4b-47b7-bdf6-6689b7f70b6c/messages:
+    get:
+      summary: Get Chat History
+      responses: {}
+      tags:
+        - Chat Service
+  /api/chat/messages/e690584a-d147-4c4f-a0d8-e56fb1e013eb:
+    delete:
+      summary: Delete Own Message
+      responses: {}
+      tags:
+        - Chat Service
+  /api/chat/streams/b761c62b-3e4b-47b7-bdf6-6689b7f70b6c/moderation:
+    post:
+      summary: Chat Moderation
+      responses: {}
+      tags:
+        - Chat Service
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+            example: |-
+              // {
+              //   "userId": "a8d14008-8088-4043-b591-b4356dcc9b81",
+              //   "action": "MUTE",
+              //   "expiresAt": "2026-09-20T17:00:00Z"
+              // }
+
+              {
+                "userId": "a8d14008-8088-4043-b591-b4356dcc9b81",
+                "action": "BAN",
+                "expiresAt": null
+              }
+  /api/chat/streams/b761c62b-3e4b-47b7-bdf6-6689b7f70b6c/moderation/a8d14008-8088-4043-b591-b4356dcc9b81/MUTE:
+    delete:
+      summary: UNMUTE User from Chat
+      responses: {}
+      tags:
+        - Chat Service
+  /api/chat/streams/b761c62b-3e4b-47b7-bdf6-6689b7f70b6c/moderation/a8d14008-8088-4043-b591-b4356dcc9b81/BAN:
+    delete:
+      summary: UNBAN User from Chat
+      responses: {}
+      tags:
+        - Chat Service
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+security:
+  - BearerAuth: []

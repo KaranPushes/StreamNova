@@ -1,0 +1,10 @@
+$kind: http-request
+url: http://localhost:8081/users/internal/6674943f-fd65-4ceb-9b21-03effe5331f7
+method: GET
+body:
+  type: json
+  content: ""
+auth:
+  type: noauth
+settings: {}
+order: 15000

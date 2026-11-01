@@ -1,0 +1,17 @@
+$kind: http-request
+name: http://localhost:8080/update
+url: http://localhost:8080/update
+method: PUT
+body:
+  type: json
+  content: "{\r
+
+    \    \"id\": \"5\",\r
+
+    \    \"name\": \"Laptop Lenovo\",\r
+
+    \    \"description\": \"This Laptop is good and updated!\"\r
+
+    }"
+settings: {}
+order: 6000

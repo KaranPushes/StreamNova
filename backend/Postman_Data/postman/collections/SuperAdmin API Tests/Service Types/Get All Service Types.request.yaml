@@ -1,0 +1,5 @@
+$kind: http-request
+url: http://localhost:8080/api/service-types/all
+method: GET
+settings: {}
+order: 4000

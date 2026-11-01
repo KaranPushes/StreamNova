@@ -1,0 +1,14 @@
+$kind: http-request
+url: http://localhost:8080/api/doctors/getBySpecialty
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: text
+  content: |-
+    {
+      "dbName": "database_name",
+      "specialty": "Cardiology"
+    }
+settings: {}
+order: 6000

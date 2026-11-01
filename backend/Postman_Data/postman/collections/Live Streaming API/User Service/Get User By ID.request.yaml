@@ -1,0 +1,5 @@
+$kind: http-request
+url: http://localhost:8081/users/4ec6a2d2-36d2-4a8e-adac-4eb41890fe0c
+method: GET
+settings: {}
+order: 1000

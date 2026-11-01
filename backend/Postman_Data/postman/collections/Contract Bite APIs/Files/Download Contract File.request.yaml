@@ -1,0 +1,11 @@
+$kind: http-request
+url: localhost:8080/api/files/download/latest/3?userId=2
+method: GET
+headers:
+  - key: userId
+    value: "1"
+    disabled: true
+queryParams:
+  userId: "2"
+settings: {}
+order: 2000

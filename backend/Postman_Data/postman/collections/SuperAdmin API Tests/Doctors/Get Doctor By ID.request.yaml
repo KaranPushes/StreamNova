@@ -1,0 +1,10 @@
+$kind: http-request
+url: http://localhost:8080/api/doctors/str?dbName=apo_hos
+method: GET
+queryParams:
+  dbName: apo_hos
+body:
+  type: json
+  content: ""
+settings: {}
+order: 4000

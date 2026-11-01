@@ -1,0 +1,5 @@
+$kind: http-request
+url: localhost:8080/api/hospitals/search/name/{{name}}
+method: GET
+settings: {}
+order: 6000

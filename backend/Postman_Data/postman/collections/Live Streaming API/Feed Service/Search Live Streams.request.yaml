@@ -1,0 +1,10 @@
+$kind: http-request
+url: http://localhost:8080/api/feed/live?category=Gaming&q=karan&page=0&size=2&sort=recent
+method: GET
+queryParams:
+  category: Gaming
+  q: karan
+  page: "0"
+  size: "2"
+  sort: recent
+order: 1791026230826

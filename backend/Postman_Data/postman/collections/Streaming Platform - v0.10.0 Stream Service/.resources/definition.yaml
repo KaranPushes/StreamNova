@@ -1,0 +1,8 @@
+$kind: collection
+variables:
+  baseUrl: http://localhost:8086
+  gatewayUrl: http://localhost:8080
+  userJwt: ""
+  streamId: ""
+  channelId: ""
+  thumbnailId: ""

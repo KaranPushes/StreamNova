@@ -1,0 +1,5 @@
+$kind: http-request
+url: http://localhost:8080/api/user/2/assign-org/2
+method: PUT
+settings: {}
+order: 7000

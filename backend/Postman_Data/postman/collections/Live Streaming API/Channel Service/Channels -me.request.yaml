@@ -1,0 +1,5 @@
+$kind: http-request
+name: Channels /me
+url: http://localhost:8080/channels/me
+method: GET
+order: 2000

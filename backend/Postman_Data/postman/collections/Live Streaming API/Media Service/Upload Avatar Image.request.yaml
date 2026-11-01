@@ -1,0 +1,10 @@
+$kind: http-request
+url: http://localhost:8080/media/avatar
+method: POST
+body:
+  type: formdata
+  content:
+    - type: file
+      key: file
+      src: /Users/karan/Downloads/test.webp
+order: 1000

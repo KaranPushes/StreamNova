@@ -1,0 +1,5 @@
+$kind: http-request
+url: http://localhost:8080/api/contracts
+method: GET
+settings: {}
+order: 2000

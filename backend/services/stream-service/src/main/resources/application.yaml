@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: stream-service
+
+  config:
+    import: "optional:configserver:${CONFIG_SERVER_URL:http://localhost:8888}"
+
+feign:
+  client:
+    transcoder:
+      url: http://localhost:8087

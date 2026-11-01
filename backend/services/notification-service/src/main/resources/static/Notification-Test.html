@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Notification WebSocket Test</title>
+
+    <!-- STOMP.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@stomp/stompjs@7.2.1/bundles/stomp.umd.min.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        h1 {
+            margin-bottom: 10px;
+        }
+
+        #status {
+            padding: 12px;
+            margin: 15px 0;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            background: #f5f5f5;
+        }
+
+        #notifications {
+            margin-top: 20px;
+        }
+
+        .notification {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 10px;
+        }
+
+        .notification-title {
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .notification-message {
+            margin-top: 6px;
+        }
+
+        .notification-time {
+            margin-top: 8px;
+            color: #777;
+            font-size: 13px;
+        }
+
+        pre {
+            background: #111;
+            color: #eee;
+            padding: 15px;
+            border-radius: 6px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>Notification WebSocket Test</h1>
+
+<div id="status">
+    Connecting...
+</div>
+
+<h2>Notifications</h2>
+
+<div id="notifications"></div>
+
+<h2>Debug</h2>
+
+<pre id="debug"></pre>
+
+
+<script>
+
+    // ============================================================
+    // CONFIGURATION
+    // ============================================================
+
+    const accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhOGQxNDAwOC04MDg4LTQwNDMtYjU5MS1iNDM1NmRjYzliODEiLCJzaWQiOiJmZDQ0NzU4NS00Yjg5LTRlNDktODU2OS1mM2UwMzFlNDhkNGEiLCJlbWFpbCI6ImthcmFub3AxNjdAZ21haWwuY29tIiwidXNlcm5hbWUiOiJrYXJhbjE2NyIsInJvbGVzIjpbIlVTRVIiXSwiaWF0IjoxNzkwOTYxNjEyLCJleHAiOjE3OTA5NjI1MTJ9.QozdK89WkccvTUJZUXGtiGCe6EDaDc8rQtlQF8jCVuo";
+    const userId = "a8d14008-8088-4043-b591-b4356dcc9b81";
+
+
+    // ============================================================
+    // UI HELPERS
+    // ============================================================
+
+    const statusElement =
+        document.getElementById("status");
+
+    const notificationsElement =
+        document.getElementById("notifications");
+
+    const debugElement =
+        document.getElementById("debug");
+
+
+    function log(message) {
+
+        console.log(message);
+
+        debugElement.textContent +=
+            message + "\n";
+    }
+
+
+    function setStatus(message) {
+
+        statusElement.textContent = message;
+
+        log(message);
+    }
+
+
+    // ============================================================
+    // STOMP CLIENT
+    // ============================================================
+
+    const client = new StompJs.Client({
+
+        brokerURL:
+            "ws://localhost:8089/ws/notifications",
+
+        connectHeaders: {
+
+            Authorization:
+                `Bearer ${accessToken}`
+
+        },
+
+        reconnectDelay: 5000,
+
+
+        // --------------------------------------------------------
+        // CONNECTED
+        // --------------------------------------------------------
+
+        onConnect: () => {
+
+            setStatus(
+                "CONNECTED - WebSocket authentication successful"
+            );
+
+            const destination =
+                `/topic/users/${userId}/notifications`;
+
+            log(
+                `Subscribing to: ${destination}`
+            );
+
+
+            client.subscribe(
+                destination,
+
+                message => {
+
+                    log(
+                        "Notification received!"
+                    );
+
+                    console.log(
+                        "Raw message:",
+                        message.body
+                    );
+
+
+                    try {
+
+                        const notification =
+                            JSON.parse(message.body);
+
+                        displayNotification(
+                            notification
+                        );
+
+                    } catch (error) {
+
+                        console.error(
+                            "Failed to parse notification:",
+                            error
+                        );
+
+                    }
+
+                }
+            );
+
+
+            log(
+                "Subscription successful"
+            );
+        },
+
+
+        // --------------------------------------------------------
+        // STOMP ERROR
+        // --------------------------------------------------------
+
+        onStompError: frame => {
+
+            console.error(
+                "STOMP ERROR:",
+                frame
+            );
+
+            setStatus(
+                "STOMP ERROR - check console"
+            );
+
+            log(
+                `STOMP error: ${frame.headers["message"] || "Unknown error"}`
+            );
+
+            log(
+                frame.body || ""
+            );
+        },
+
+
+        // --------------------------------------------------------
+        // WEBSOCKET ERROR
+        // --------------------------------------------------------
+
+        onWebSocketError: error => {
+
+            console.error(
+                "WebSocket error:",
+                error
+            );
+
+            setStatus(
+                "WEBSOCKET ERROR - check console"
+            );
+        },
+
+
+        // --------------------------------------------------------
+        // WEBSOCKET CLOSE
+        // --------------------------------------------------------
+
+        onWebSocketClose: event => {
+
+            console.log(
+                "WebSocket closed:",
+                event
+            );
+
+            setStatus(
+                "DISCONNECTED - reconnecting..."
+            );
+        }
+
+    });
+
+
+    // ============================================================
+    // DISPLAY NOTIFICATION
+    // ============================================================
+
+    function displayNotification(notification) {
+
+        const element =
+            document.createElement("div");
+
+        element.className =
+            "notification";
+
+
+        const title =
+            document.createElement("div");
+
+        title.className =
+            "notification-title";
+
+        title.textContent =
+            notification.title;
+
+
+        const message =
+            document.createElement("div");
+
+        message.className =
+            "notification-message";
+
+        message.textContent =
+            notification.message;
+
+
+        const type =
+            document.createElement("div");
+
+        type.className =
+            "notification-time";
+
+        type.textContent =
+            `Type: ${notification.type}`;
+
+
+        const time =
+            document.createElement("div");
+
+        time.className =
+            "notification-time";
+
+        time.textContent =
+            `Created: ${notification.createdAt}`;
+
+
+        element.appendChild(title);
+        element.appendChild(message);
+        element.appendChild(type);
+        element.appendChild(time);
+
+
+        notificationsElement.prepend(
+            element
+        );
+    }
+
+
+    // ============================================================
+    // START
+    // ============================================================
+
+    log("Starting Notification WebSocket...");
+
+    log(
+        `WebSocket: ws://localhost:8089/ws/notifications`
+    );
+
+    log(
+        `User: ${userId}`
+    );
+
+    client.activate();
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,7 @@
+$kind: http-request
+url: "{{baseUrl}}/streams/{{streamId}}/start"
+method: POST
+headers:
+  Authorization: Bearer {{userJwt}}
+settings: {}
+order: 5000

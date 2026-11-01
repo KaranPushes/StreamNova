@@ -1,0 +1,4 @@
+$kind: http-request
+url: http://localhost:8080/media/files/f010699b-e5ce-41f8-b7b6-6e85e3443a93
+method: GET
+order: 4000

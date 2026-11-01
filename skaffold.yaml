@@ -1,0 +1,132 @@
+apiVersion: skaffold/v4beta11
+kind: Config
+metadata:
+  name: streamnova
+
+build:
+  local:
+    push: false
+    useBuildkit: false
+  artifacts:
+    - image: streamnova/api-gateway
+      context: backend/infrastructure/api-gateway
+      jib:
+        args:
+          - "-DskipTests"
+          - "-Djib.from.image=eclipse-temurin:25-jre"
+          - "-Djib.from.platforms=linux/arm64"
+    - image: streamnova/config-server
+      context: backend/infrastructure/config-server
+      jib:
+        args:
+          - "-DskipTests"
+          - "-Djib.from.image=eclipse-temurin:25-jre"
+          - "-Djib.from.platforms=linux/arm64"
+    - image: streamnova/discovery-server
+      context: backend/infrastructure/discovery-server
+      jib:
+        args:
+          - "-DskipTests"
+          - "-Djib.from.image=eclipse-temurin:25-jre"
+          - "-Djib.from.platforms=linux/arm64"
+    - image: streamnova/auth-service
+      context: backend/services/auth-service
+      jib:
+        args:
+          - "-DskipTests"
+          - "-Djib.from.image=eclipse-temurin:25-jre"
+          - "-Djib.from.platforms=linux/arm64"
+    - image: streamnova/user-service
+      context: backend/services/user-service
+      jib:
+        args:
+          - "-DskipTests"
+          - "-Djib.from.image=eclipse-temurin:25-jre"
+          - "-Djib.from.platforms=linux/arm64"
+    - image: streamnova/channel-service
+      context: backend/services/channel-service
+      jib:
+        args:
+          - "-DskipTests"
+          - "-Djib.from.image=eclipse-temurin:25-jre"
+          - "-Djib.from.platforms=linux/arm64"
+    - image: streamnova/follow-service
+      context: backend/services/follow-service
+      jib:
+        args:
+          - "-DskipTests"
+          - "-Djib.from.image=eclipse-temurin:25-jre"
+          - "-Djib.from.platforms=linux/arm64"
+    - image: streamnova/media-service
+      context: backend/services/media-service
+      jib:
+        args:
+          - "-DskipTests"
+          - "-Djib.from.image=eclipse-temurin:25-jre"
+          - "-Djib.from.platforms=linux/arm64"
+    - image: streamnova/stream-service
+      context: backend/services/stream-service
+      jib:
+        args:
+          - "-DskipTests"
+          - "-Djib.from.image=eclipse-temurin:25-jre"
+          - "-Djib.from.platforms=linux/arm64"
+    - image: streamnova/transcoder-service
+      context: backend/services/transcoder-service
+      docker:
+        dockerfile: Dockerfile
+    - image: streamnova/chat-service
+      context: backend/services/chat-service
+      jib:
+        args:
+          - "-DskipTests"
+          - "-Djib.from.image=eclipse-temurin:25-jre"
+          - "-Djib.from.platforms=linux/arm64"
+    - image: streamnova/feed-service
+      context: backend/services/feed-service
+      jib:
+        args:
+          - "-DskipTests"
+          - "-Djib.from.image=eclipse-temurin:25-jre"
+          - "-Djib.from.platforms=linux/arm64"
+    - image: streamnova/notification-service
+      context: backend/services/notification-service
+      jib:
+        args:
+          - "-DskipTests"
+          - "-Djib.from.image=eclipse-temurin:25-jre"
+          - "-Djib.from.platforms=linux/arm64"
+
+manifests:
+  kustomize:
+    paths:
+      - k8s/
+
+deploy:
+  kubectl: {}
+
+portForward:
+  - resourceType: service
+    resourceName: api-gateway
+    port: 8080
+    localPort: 8080
+  - resourceType: service
+    resourceName: discovery-server
+    port: 8761
+    localPort: 8761
+  - resourceType: service
+    resourceName: mediamtx
+    port: 1935
+    localPort: 1935
+  - resourceType: service
+    resourceName: mediamtx
+    port: 8888
+    localPort: 8888
+  - resourceType: service
+    resourceName: nginx-hls
+    port: 8090
+    localPort: 8090
+  - resourceType: service
+    resourceName: postgres
+    port: 5432
+    localPort: 5432

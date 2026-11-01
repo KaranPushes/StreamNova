@@ -1,0 +1,22 @@
+services:
+  postgres:
+    image: postgres:17
+
+    container_name: streaming-postgres
+
+    command: postgres -c max_connections=300 -c idle_in_transaction_session_timeout=30000
+
+    environment:
+      POSTGRES_USER: streaming
+      POSTGRES_PASSWORD: streaming123
+
+    ports:
+      - "5432:5432"
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
+    external: true
+    name: docker_postgres_data

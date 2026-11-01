@@ -1,0 +1,8 @@
+$kind: http-request
+url: localhost:8080/api/hospitals/{{hospitalId}}
+method: DELETE
+body:
+  type: json
+  content: ""
+settings: {}
+order: 5000

@@ -1,0 +1,34 @@
+$kind: http-request
+url: localhost:8080/api/superadmin/create-database
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \  \"name\": \"Apollo Hospital\",\r
+
+    \  \"tag\":\"APO_hos\",\r
+
+    \  \"addressLine1\": \"Ashapurna Valley\",\r
+
+    \  \"addressLine2\": \"Shahpur\",\r
+
+    \  \"cityId\": 1,\r
+
+    \  \"stateId\": 1,\r
+
+    \  \"phoneNumber\": \"9876544210\",\r
+
+    \  \"email\": \"info@shellbl.com\",\r
+
+    \  \"adminName\": \"Karan\",\r
+
+    \  \"ownerName\": \"Hitesh\",\r
+
+    \  \"governmentOrPrivate\": \"Private\",\r
+
+    \  \"operatingStatus\": true\r
+
+    }"
+settings: {}
+order: 3000

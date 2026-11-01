@@ -1,0 +1,6 @@
+$kind: http-request
+name: https://official-joke-api.appspot.com/random_joke
+url: https://official-joke-api.appspot.com/random_joke
+method: GET
+settings: {}
+order: 1000

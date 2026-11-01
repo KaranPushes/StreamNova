@@ -1,0 +1,16 @@
+$kind: http-request
+url: http://localhost:8080/api/contracts
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \    \"title\": \"ConceptServe\",\r
+
+    \    \"description\": \"CS Contract\",\r
+
+    \    \"organization_id\": 1\r
+
+    }"
+settings: {}
+order: 1000

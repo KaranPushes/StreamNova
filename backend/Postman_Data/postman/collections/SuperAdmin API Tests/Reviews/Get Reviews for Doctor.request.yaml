@@ -1,0 +1,8 @@
+$kind: http-request
+url: http://localhost:8080/api/reviews/get-by-doctor?dbName=healthcare_db&doctorId=5678
+method: GET
+queryParams:
+  dbName: healthcare_db
+  doctorId: "5678"
+settings: {}
+order: 3000

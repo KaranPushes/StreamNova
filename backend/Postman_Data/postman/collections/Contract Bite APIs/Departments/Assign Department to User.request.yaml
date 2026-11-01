@@ -1,0 +1,5 @@
+$kind: http-request
+url: http://localhost:8080/api/department/2/assign/2
+method: POST
+settings: {}
+order: 6000

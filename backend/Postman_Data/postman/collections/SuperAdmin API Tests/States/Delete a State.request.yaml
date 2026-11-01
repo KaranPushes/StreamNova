@@ -1,0 +1,5 @@
+$kind: http-request
+url: http://localhost:8080/api/states/delete/1
+method: DELETE
+settings: {}
+order: 3000

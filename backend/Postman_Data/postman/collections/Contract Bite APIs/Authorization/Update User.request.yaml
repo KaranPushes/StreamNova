@@ -1,0 +1,36 @@
+$kind: http-request
+url: http://localhost:8080/api/user
+method: PUT
+body:
+  type: json
+  content: "{\r
+
+    \    \"email\": \"macret16@gmail.com\",\r
+
+    \    \"userName\": \"karan\",\r
+
+    \    \"name\": \"Karan Op 2\",\r
+
+    \    \"password\": \"karan\",\r
+
+    \    \"profileUrl\": \"www.google.com\",\r
+
+    \    \"phoneNo\": 7990672067,\r
+
+    \    \"roles\": [\r
+
+    \        \"USER\",\r
+
+    \        \"ADMIN\"\r
+
+    \    ],\r
+
+    \    \"otp\": null,\r
+
+    \    \"otpExpiry\": null,\r
+
+    \    \"verified\": true\r
+
+    }"
+settings: {}
+order: 5000

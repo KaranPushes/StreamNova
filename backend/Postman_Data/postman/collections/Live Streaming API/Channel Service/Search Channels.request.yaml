@@ -1,0 +1,8 @@
+$kind: http-request
+url: http://localhost:8080/channels/search?q=karan
+method: GET
+queryParams:
+  q: karan
+auth:
+  type: noauth
+order: 12000

@@ -1,0 +1,9 @@
+$kind: http-request
+name: http://localhost:8080/getbyid
+url: http://localhost:8080/getbyid
+method: POST
+body:
+  type: json
+  content: "{\r\n    \"id\":\"4\"\r\n}"
+settings: {}
+order: 5000

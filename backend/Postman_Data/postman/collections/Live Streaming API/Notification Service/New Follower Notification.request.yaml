@@ -1,0 +1,11 @@
+$kind: http-request
+url: http://localhost:8089/internal/notifications/events/follower
+method: POST
+body:
+  type: json
+  content: |-
+    {
+      "followedUserId": "a8d14008-8088-4043-b591-b4356dcc9b81",
+      "followerUserId": "7e6374fc-67a9-4a26-abb9-3457dc09d62a"
+    }
+order: 4288831745904259

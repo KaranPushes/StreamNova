@@ -1,0 +1,17 @@
+$kind: http-request
+url: "{{baseUrl}}/streams/{{streamId}}"
+method: PATCH
+headers:
+  Authorization: Bearer {{userJwt}}
+  Content-Type: application/json
+body:
+  type: text
+  content: |-
+    {
+      "title": "Updated Stream Title",
+      "description": "Updated description",
+      "category": "Just Chatting",
+      "thumbnailId": "{{thumbnailId}}"
+    }
+settings: {}
+order: 3000

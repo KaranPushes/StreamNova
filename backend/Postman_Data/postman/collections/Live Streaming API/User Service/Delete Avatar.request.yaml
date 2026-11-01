@@ -1,0 +1,8 @@
+$kind: http-request
+url: http://localhost:8081/users/me/avatar
+method: DELETE
+body:
+  type: json
+  content: ""
+settings: {}
+order: 5000

@@ -1,0 +1,4 @@
+$kind: http-request
+url: http://localhost:8083/channels/me/avatar
+method: DELETE
+order: 9000

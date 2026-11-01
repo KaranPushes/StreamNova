@@ -1,0 +1,13 @@
+$kind: http-request
+url: http://localhost:8082/auth/verify-email
+method: POST
+body:
+  type: json
+  content: |-
+    {
+        "token": "Zk2P4bTdfVL2R5frgLNDC_sJWzLAXhpdex7fdqhoFJkxVhamw_MZ-Otx2NVSELBUiGFd9R429cXfkTejXD5wHg"
+    }
+auth:
+  type: noauth
+settings: {}
+order: 9000

@@ -1,0 +1,10 @@
+$kind: http-request
+url: http://localhost:8080/api/service-types/update/1
+method: PUT
+headers:
+  Content-Type: application/json
+body:
+  type: text
+  content: '{"name": "Electrical", "description": "Electrical services for residential and commercial properties."}'
+settings: {}
+order: 2000

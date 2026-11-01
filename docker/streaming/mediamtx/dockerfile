@@ -1,0 +1,9 @@
+FROM bluenviron/mediamtx:1-ffmpeg
+
+USER root
+
+RUN apk add --no-cache curl ca-certificates
+
+COPY mediamtx.yml /mediamtx.yml
+
+ENTRYPOINT ["/mediamtx"]

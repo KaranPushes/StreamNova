@@ -1,0 +1,8 @@
+$kind: http-request
+url: http://localhost:8080/api/chat/messages/e690584a-d147-4c4f-a0d8-e56fb1e013eb
+method: DELETE
+auth:
+  type: inherit
+  credentials:
+    id: collection-Dc2Cf76EE1aefEeeAb8BF01D-bearer
+order: 2324789715840495

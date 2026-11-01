@@ -1,0 +1,18 @@
+$kind: http-request
+url: http://localhost:8080/api/doctors/create
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: text
+  content: |-
+    {
+      "dbName": "apo_hos",
+      "userId": 1,
+      "specialty": "Cardiology",
+      "licenseNumber": "ABC121365455",
+      "yearsOfExperience": 10,
+      "availabilitySchedule": "Mon-Fri: 9am-5pm"
+    }
+settings: {}
+order: 1000

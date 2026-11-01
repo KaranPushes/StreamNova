@@ -1,0 +1,5 @@
+$kind: http-request
+url: http://localhost:8080/api/posts/user/1
+method: GET
+settings: {}
+order: 6000

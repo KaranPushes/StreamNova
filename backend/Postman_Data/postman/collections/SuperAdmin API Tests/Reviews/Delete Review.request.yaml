@@ -1,0 +1,12 @@
+$kind: http-request
+url: http://localhost:8080/api/reviews/delete
+method: DELETE
+body:
+  type: text
+  content: |-
+    {
+        "dbName": "healthcare_db",
+        "id": 1
+    }
+settings: {}
+order: 2000

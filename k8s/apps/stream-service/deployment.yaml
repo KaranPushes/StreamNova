@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: stream-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: stream-service
+  template:
+    metadata:
+      labels:
+        app: stream-service
+    spec:
+      containers:
+      - name: stream-service
+        image: streamnova/stream-service
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8086
+        env:
+        - name: SPRING_DATASOURCE_URL
+          value: "jdbc:postgresql://postgres:5432/streaming_streams"
+        envFrom:
+        - configMapRef:
+            name: streamnova-config
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: stream-service
+spec:
+  selector:
+    app: stream-service
+  ports:
+  - port: 8086
+    targetPort: 8086

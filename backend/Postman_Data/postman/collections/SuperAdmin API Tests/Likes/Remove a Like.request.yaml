@@ -1,0 +1,8 @@
+$kind: http-request
+url: http://localhost:8080/api/likes/remove?userId=1&postId=101
+method: DELETE
+queryParams:
+  userId: "1"
+  postId: "101"
+settings: {}
+order: 2000

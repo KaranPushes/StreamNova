@@ -1,0 +1,18 @@
+$kind: http-request
+url: "{{baseUrl}}/streams"
+method: POST
+headers:
+  Authorization: Bearer {{userJwt}}
+  Content-Type: application/json
+body:
+  type: text
+  content: |-
+    {
+      "title": "My First Stream",
+      "description": "My first live stream",
+      "category": "Gaming",
+      "thumbnailId": "{{thumbnailId}}",
+      "scheduledAt": "2026-09-08T18:00:00Z"
+    }
+settings: {}
+order: 1000

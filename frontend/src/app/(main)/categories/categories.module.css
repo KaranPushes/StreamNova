@@ -1,0 +1,82 @@
+.pageContainer {
+  padding: 32px 48px;
+  max-width: 1600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.emptyState {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border-bottom: 1px solid var(--border-medium);
+  padding-bottom: 24px;
+}
+
+.headerIcon {
+  color: var(--accent-primary);
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 24px;
+}
+
+.card {
+  display: flex;
+  padding: 32px 24px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-medium);
+  border-radius: 16px;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  background-color: var(--bg-surface-hover);
+  border-color: var(--accent-primary);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.name {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.viewers {
+  font-size: 0.9rem;
+  color: var(--accent-primary);
+  font-weight: 600;
+}

@@ -1,0 +1,4 @@
+$kind: http-request
+url: http://localhost:8080/api/chat/streams/b761c62b-3e4b-47b7-bdf6-6689b7f70b6c/moderation/a8d14008-8088-4043-b591-b4356dcc9b81/BAN
+method: DELETE
+order: 4480481643647495

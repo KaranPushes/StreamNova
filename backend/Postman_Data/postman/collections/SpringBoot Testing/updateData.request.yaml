@@ -1,0 +1,16 @@
+$kind: http-request
+url: http://localhost:8080/updateData
+method: PUT
+body:
+  type: json
+  content: "{\r
+
+    \    \"id\": \"6\",\r
+
+    \    \"username\": \"Ismail\",\r
+
+    \    \"password\": \"karan123\"\r
+
+    }"
+settings: {}
+order: 5000

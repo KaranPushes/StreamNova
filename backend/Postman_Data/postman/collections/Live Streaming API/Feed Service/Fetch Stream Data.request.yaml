@@ -1,0 +1,4 @@
+$kind: http-request
+url: http://localhost:8080/api/feed/streams/b2ae6663-105a-402b-902e-52621af8846f
+method: GET
+order: 4502134278908976

@@ -1,0 +1,9 @@
+$kind: http-request
+url: http://localhost:8081/users/availability?username=karanop
+method: GET
+queryParams:
+  username: karanop
+auth:
+  type: noauth
+settings: {}
+order: 10000

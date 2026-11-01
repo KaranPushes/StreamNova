@@ -1,0 +1,5 @@
+$kind: http-request
+url: "{{base_url}}/api/patients/{{dbName}}/byId/{{id}}"
+method: GET
+settings: {}
+order: 3000

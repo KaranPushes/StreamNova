@@ -1,0 +1,9 @@
+$kind: http-request
+url: http://localhost:8080/api/contracts/2/merge?userId=1
+method: POST
+headers:
+  userId: "123"
+queryParams:
+  userId: "1"
+settings: {}
+order: 2000

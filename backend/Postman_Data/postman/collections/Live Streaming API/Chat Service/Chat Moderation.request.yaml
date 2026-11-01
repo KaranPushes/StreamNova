@@ -1,0 +1,22 @@
+$kind: http-request
+url: http://localhost:8080/api/chat/streams/b761c62b-3e4b-47b7-bdf6-6689b7f70b6c/moderation
+method: POST
+body:
+  type: json
+  content: |-
+    // {
+    //   "userId": "a8d14008-8088-4043-b591-b4356dcc9b81",
+    //   "action": "MUTE",
+    //   "expiresAt": "2026-09-20T17:00:00Z"
+    // }
+
+    {
+      "userId": "a8d14008-8088-4043-b591-b4356dcc9b81",
+      "action": "BAN",
+      "expiresAt": null
+    }
+auth:
+  type: inherit
+  credentials:
+    id: collection-Dc2Cf76EE1aefEeeAb8BF01D-bearer
+order: 3735945293793184

@@ -1,0 +1,11 @@
+$kind: http-request
+url: http://localhost:8082/auth/logout
+method: POST
+body:
+  type: json
+  content: |-
+    {
+      "refreshToken": "yzFA3FGHCrognvyzCeJUeDLJjQro1Ig-BWwzCv8MVuTAQRT4LmGegInUdPnVE1YeT_vPr47Ploo5vK47Ifpsuw"
+    }
+settings: {}
+order: 14000

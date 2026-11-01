@@ -1,0 +1,9 @@
+$kind: http-request
+url: http://localhost:8081/users/search?q=karan
+method: GET
+queryParams:
+  q: karan
+auth:
+  type: noauth
+settings: {}
+order: 12000

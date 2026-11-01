@@ -1,0 +1,10 @@
+$kind: http-request
+url: http://localhost:8080/api/states/update/1
+method: PUT
+headers:
+  Content-Type: application/json
+body:
+  type: text
+  content: '{"name": "New California", "country_id": 1}'
+settings: {}
+order: 2000

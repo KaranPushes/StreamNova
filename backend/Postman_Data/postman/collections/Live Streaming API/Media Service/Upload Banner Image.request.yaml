@@ -1,0 +1,11 @@
+$kind: http-request
+url: http://localhost:8080/media/banner
+method: POST
+body:
+  type: formdata
+  content:
+    - type: file
+      key: file
+      src:
+        - postman-cloud:///1f1a6399-dd5b-4090-a69a-71ec4059130a
+order: 2000

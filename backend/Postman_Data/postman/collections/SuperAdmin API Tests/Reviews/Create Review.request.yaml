@@ -1,0 +1,15 @@
+$kind: http-request
+url: http://localhost:8080/api/reviews/create
+method: POST
+body:
+  type: text
+  content: |-
+    {
+        "dbName": "healthcare_db",
+        "patientId": 1234,
+        "doctorId": 5678,
+        "rating": 5,
+        "reviewText": "Great service!"
+    }
+settings: {}
+order: 1000
